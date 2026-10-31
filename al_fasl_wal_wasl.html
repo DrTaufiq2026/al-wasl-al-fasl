@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفصل والوصل — الدليل التفاعلي في البلاغة</title>
+    <meta name="description" content="الدليل التفاعلي في علم المعاني: الفصل والوصل. مناسب لطلاب الدراسات الإسلامية واللغة العربية.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==================== CSS VARIABLES & THEME ==================== */
+        :root {
+            /* Theme: Hijau Pucuk Pisang (Banana Shoot Green) - Elegant */
+            --bg-primary: #eaf4b5; /* Light banana shoot green */
+            --bg-secondary: #fdfef7; /* Off-white with green tint */
+            --bg-tertiary: #dceba0; /* Darker pucuk pisang */
+            --text-main: #1e3913; /* Deep forest green for readability */
+            --text-muted: #4b6a38;
+            --primary-color: #2b5f10; /* Emerald/Deep Green */
+            --primary-light: #d1e7be;
+            --accent-color: #c9a227; /* Soft Gold */
+            --accent-light: #fef08a;
+            --border-color: #c8df94;
+            --success: #10b981;
+            --danger: #ef4444;
+            --card-shadow: 0 4px 15px rgba(43, 95, 16, 0.1), 0 2px 4px rgba(43, 95, 16, 0.05);
+            --transition: all 0.3s ease;
+            --arabic-font-size: 28px;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a2912;
+            --bg-secondary: #223617;
+            --bg-tertiary: #2f4921;
+            --text-main: #f0f7da;
+            --text-muted: #c1d6b0;
+            --primary-color: #8ed658; 
+            --primary-light: #3d5e28;
+            --accent-color: #fcd34d;
+            --border-color: #3e5e29;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ==================== RESET & TYPOGRAPHY ==================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.8;
+            transition: var(--transition);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Sparkles (Blink Blink Effect) */
+        #sparkle-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .sparkle {
+            position: absolute;
+            width: 5px; height: 5px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-color), 0 0 20px #FFF;
+            opacity: 0;
+            animation: blink linear infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Main Content wrapper above sparkles */
+        .content-wrapper { position: relative; z-index: 10; }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+            font-size: var(--arabic-font-size);
+            line-height: 2.2;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .malay-text {
+            font-family: 'Inter', system-ui, sans-serif;
+            direction: ltr;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.4; margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; display: inline-block; }
+        h3 { font-size: 1.5rem; }
+        
+        a { color: var(--primary-color); text-decoration: none; }
+        button { cursor: pointer; font-family: inherit; border: none; background: none; }
+        
+        /* ==================== LAYOUT & COMPONENTS ==================== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .grid { display: grid; gap: 20px; }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+        /* Navbar */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
+        .nav-brand { font-weight: 700; font-size: 1.4rem; color: var(--primary-color); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 20px; font-size: 1.1rem; }
+        .nav-links a { font-weight: 600; padding: 5px 10px; border-radius: 6px; transition: var(--transition); }
+        .nav-links a:hover { background-color: var(--bg-tertiary); color: var(--primary-color); }
+        .nav-controls { display: flex; gap: 10px; align-items: center; }
+        .btn-icon { padding: 8px; border-radius: 50%; background-color: var(--bg-tertiary); color: var(--text-main); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+        .btn-icon:hover { background-color: var(--primary-light); }
+        .hamburger { display: none; font-size: 1.5rem; }
+
+        /* Progress Bar */
+        #progress-container { width: 100%; height: 4px; background: var(--bg-tertiary); position: absolute; bottom: 0; left: 0; }
+        #progress-bar { height: 100%; background: var(--accent-color); width: 0%; transition: width 0.5s ease; float: right; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); position: relative; overflow: hidden; border-bottom: 3px solid var(--accent-color); }
+        .hero-bg-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; pointer-events: none; background-image: radial-gradient(var(--primary-color) 2px, transparent 2px); background-size: 30px 30px; }
+        .hero h1 .arabic { font-family: 'Amiri', serif; font-size: 4rem; display: block; margin-bottom: 10px; color: var(--primary-color); text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stats-container { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
+        .stat-card { background: var(--bg-secondary); padding: 20px; border-radius: 16px; box-shadow: var(--card-shadow); min-width: 150px; border-top: 4px solid var(--accent-color); font-weight: bold; }
+        .stat-num { font-size: 2.5rem; font-weight: 700; color: var(--primary-color); font-family: 'Inter', sans-serif; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 1.1rem; text-align: center; transition: var(--transition); gap: 8px; font-family: 'Noto Naskh Arabic', serif; }
+        .btn-primary { background-color: var(--primary-color); color: #FFF !important; box-shadow: 0 4px 6px rgba(43, 95, 16, 0.3); }
+        .btn-primary:hover { background-color: #1c420a; transform: translateY(-2px); }
+        [data-theme="dark"] .btn-primary { color: var(--bg-primary) !important; }
+        .btn-outline { border: 2px solid var(--primary-color); color: var(--primary-color); }
+        .btn-outline:hover { background-color: var(--primary-light); }
+
+        /* Cards & Accordions */
+        .card { background-color: var(--bg-secondary); border-radius: 16px; padding: 24px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); }
+        
+        .accordion-item { border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; overflow: hidden; background: var(--bg-secondary); }
+        .accordion-header { width: 100%; text-align: right; padding: 16px 20px; font-weight: 700; font-size: 1.2rem; background: var(--bg-tertiary); display: flex; justify-content: space-between; align-items: center; color: var(--text-main); }
+        .accordion-header:hover { background: var(--primary-light); }
+        .accordion-content { padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .accordion-content.active { padding: 20px; max-height: 2500px; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-header[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
+
+        /* Example Card Specifics */
+        .example-card { border-right: 4px solid var(--primary-color); padding: 15px; background: var(--bg-primary); margin-bottom: 15px; border-radius: 8px 0 0 8px; position: relative; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
+        .badge-quran { background: #d1e7be; color: #2b5f10; }
+        .badge-hadis { background: #fef08a; color: #854d0e; }
+        .badge-syair { background: #e0e7ff; color: #3730a3; }
+        .badge-warning { background: #fee2e2; color: #991b1b; margin-top: 10px; display: block; width: fit-content; }
+        
+        .example-actions { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .translation-box, .huraian-box { margin-top: 10px; padding: 15px; background: var(--bg-secondary); border-radius: 8px; border: 1px dashed var(--border-color); display: none; }
+        .translation-box.show, .huraian-box.show { display: block; animation: fadeIn 0.3s ease; }
+
+        /* Table */
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px 15px; text-align: right; border-bottom: 1px solid var(--border-color); }
+        th { background-color: var(--bg-tertiary); font-weight: 700; font-size: 1.1rem; }
+        
+        /* Interactive SVG Diagram */
+        .diagram-container { width: 100%; max-width: 800px; margin: 0 auto; padding: 20px; background: var(--bg-secondary); border-radius: 16px; box-shadow: var(--card-shadow); direction: ltr; }
+        .node { cursor: pointer; transition: var(--transition); }
+        .node:hover rect { fill: var(--bg-tertiary); stroke: var(--primary-color); }
+        .node text { fill: var(--text-main); font-family: 'Noto Naskh Arabic', sans-serif; font-weight: 700; font-size: 16px; pointer-events: none;}
+        .node .sub-text { font-size: 13px; font-weight: 500; }
+        [data-theme="dark"] .node rect { fill: var(--bg-tertiary); stroke: var(--border-color); }
+        [data-theme="dark"] .node:hover rect { fill: var(--primary-light); }
+        
+        /* Wizard / Penentu */
+        .wizard-step { display: none; animation: fadeIn 0.3s ease; text-align: center; }
+        .wizard-step.active { display: block; }
+        .wizard-question { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; line-height: 1.6; }
+        .wizard-options { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        
+        .wizard-feedback { margin-top: 20px; padding: 15px; border-radius: 8px; font-weight: 700; display: none; }
+        .wizard-feedback.success { background: #d1e7be; color: #1c420a; border: 1px solid #10b981; }
+        .wizard-feedback.error { background: #fee2e2; color: #7f1d1d; border: 1px solid #ef4444; }
+        .subtopic-desc { padding: 15px; background: var(--bg-tertiary); margin: 0; border-bottom: 1px solid var(--border-color); font-size: 1.05rem; }
+
+        /* Latihan - Tabs */
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); overflow-x: auto; }
+        .tab-btn { padding: 10px 20px; font-weight: 700; font-size: 1.1rem; color: var(--text-muted); border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab-btn.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+        .tab-content { display: none; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+
+        /* Quiz */
+        .quiz-container { max-width: 650px; margin: 0 auto; background: var(--bg-secondary); padding: 30px; border-radius: 16px; box-shadow: var(--card-shadow); }
+        .quiz-options { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .quiz-option { padding: 15px; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; transition: var(--transition); font-weight: 600; font-size: 1.1rem; text-align: right;}
+        .quiz-option:hover { border-color: var(--primary-color); background: var(--bg-tertiary); }
+        .quiz-option.selected { background: var(--primary-light); border-color: var(--primary-color); color: var(--text-main); }
+        .quiz-option.correct { background: #d1e7be; border-color: #10b981; color: #1c420a; }
+        .quiz-option.wrong { background: #fee2e2; border-color: #ef4444; color: #7f1d1d; }
+        
+        /* Quiz Details */
+        .detail-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 10px; text-align: right; }
+        .detail-q { font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
+        .detail-user { margin-bottom: 5px; font-weight: 600; }
+        .detail-user.correct { color: #10b981; }
+        .detail-user.wrong { color: #ef4444; }
+        .detail-correct { color: var(--primary-color); font-weight: 700; background: var(--primary-light); padding: 5px 10px; border-radius: 4px; display: inline-block; margin-top: 5px;}
+        
+        /* Flashcards */
+        .flashcard-container { perspective: 1000px; width: 100%; max-width: 500px; margin: 0 auto; height: 320px; }
+        .flashcard { width: 100%; height: 100%; position: relative; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+        .flashcard.is-flipped { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; border-radius: 16px; box-shadow: var(--card-shadow); background: var(--bg-secondary); border: 2px solid var(--primary-color); }
+        .flashcard-back { transform: rotateY(180deg); background: var(--bg-tertiary); color: var(--primary-color); }
+
+        /* Drag & Drop */
+        .dnd-container { display: flex; flex-direction: column; gap: 20px; }
+        .dnd-items { display: flex; flex-wrap: wrap; gap: 10px; padding: 15px; background: var(--bg-tertiary); border-radius: 8px; min-height: 100px;}
+        .dnd-item { padding: 12px 18px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; cursor: grab; font-family: 'Amiri', serif; font-size: 1.4rem; direction: rtl; font-weight: bold; }
+        .dnd-item.selected { border-color: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-color); } 
+        .dnd-targets { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .dnd-target { border: 2px dashed var(--border-color); border-radius: 8px; padding: 15px; text-align: center; min-height: 150px; background: var(--bg-secondary); transition: background 0.2s;}
+        .dnd-target.drag-over { background: var(--primary-light); border-color: var(--primary-color); }
+
+        /* Footer & Print */
+        footer { text-align: center; padding: 40px 20px; background: var(--bg-tertiary); margin-top: 40px; font-size: 1rem; color: var(--text-muted); font-weight: bold; }
+        .scroll-top { position: fixed; bottom: 20px; left: 20px; background: var(--primary-color); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; pointer-events: none; transition: 0.3s; box-shadow: var(--card-shadow); z-index: 99; }
+        .scroll-top.visible { opacity: 1; pointer-events: auto; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; right: 0; width: 100%; background: var(--bg-secondary); padding: 20px; box-shadow: var(--card-shadow); }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+            .hero h1 .arabic { font-size: 3rem; }
+            .arabic-text { font-size: calc(var(--arabic-font-size) - 4px); }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media print {
+            nav, .hero, .tabs, .scroll-top, .example-actions, button { display: none !important; }
+            body { background: white; color: black; }
+            .container { max-width: 100%; }
+            .accordion-content { max-height: none; padding: 10px; display: block; }
+            .example-card { page-break-inside: avoid; border-right: 2px solid black; }
+            .badge { border: 1px solid black; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sparkles Background Effect -->
+    <div id="sparkle-container"></div>
+
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="nav-brand">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    الفصل والوصل
+                </a>
+                <div class="nav-links" id="nav-links">
+                    <a href="#konsep">المفهوم</a>
+                    <a href="#fasl">موجبات الفصل</a>
+                    <a href="#wasl">موجبات الوصل</a>
+                    <a href="#penentu">المُحَدِّد (المرشد)</a>
+                    <a href="#latihan">التدريبات</a>
+                    <a href="#rujukan">الخلاصة</a>
+                </div>
+                <div class="nav-controls">
+                    <button class="btn-icon" id="btn-font-minus" aria-label="Kecilkan teks" title="تصغير الخط">A-</button>
+                    <button class="btn-icon" id="btn-font-plus" aria-label="Besarkan teks" title="تكبير الخط">A+</button>
+                    <button class="btn-icon" id="btn-theme" aria-label="Tukar Tema" title="تغيير المظهر">🌙</button>
+                    <button class="hamburger btn-icon" id="btn-menu" aria-label="Menu">☰</button>
+                </div>
+            </div>
+            <div id="progress-container"><div id="progress-bar"></div></div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="hero" id="utama">
+                <div class="hero-bg-pattern"></div>
+                <div class="container" style="position: relative; z-index: 1;">
+                    <h1>
+                        <span class="arabic">الفصل والوصل</span>
+                        الدليل التفاعلي في البلاغة
+                    </h1>
+                    <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+                        أتقن أسرار الفصل والوصل (علم المعاني) من خلال الشرح التفاعلي، وأمثلة القرآن والحديث والشعر، والتدريبات العملية المتنوعة.
+                    </p>
+                    <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <a href="#konsep" class="btn btn-primary">ابدأ التعلم</a>
+                        <a href="#latihan" class="btn btn-outline">انتقل للتدريبات</a>
+                    </div>
+                    
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-num">٣</div>
+                            <div>أسباب الفصل</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">٣</div>
+                            <div>أسباب الوصل</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">١٧</div>
+                            <div>أمثلة محللة</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num" id="stat-progress" style="direction: ltr;">0%</div>
+                            <div>نسبة تقدمك</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Konsep Section -->
+            <section class="section" id="konsep">
+                <div class="container">
+                    <h2 style="text-align: center; display: block; margin: 0 auto 40px; width: fit-content;">المفهوم الأساسي</h2>
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>ما هو الفصل والوصل؟</h3>
+                            <p>من أسرار البلاغة معرفة مواطن <strong>الوصل</strong> (عطف الجمل بالواو) و<strong>الفصل</strong> (ترك العطف لتتوالى الجمل بدون رابط لفظي).</p>
+                            <p style="margin-top: 10px;">ركز علماء المعاني في هذا الباب على العطف <strong>بحرف الواو (و)</strong> فقط، لأن الحاجة إليها خفية وتتطلب دقة في إدراك المعاني والمناسبة بين الجمل.</p>
+                        </div>
+                        <div class="card">
+                            <h3>لماذا حرف الواو تحديداً؟</h3>
+                            <p>الواو لمجرد الجمع المطلق والتشريك، ولا تفيد معنى إضافياً كغيرها، مما يستدعي التأمل الدقيق عند استخدامها.</p>
+                            <table style="margin-top: 15px;">
+                                <tr><th>الحرف</th><th>المعنى الإضافي</th></tr>
+                                <tr><td><strong>الواو (و)</strong></td><td>الجمع المطلق (لا دلالة إضافية)</td></tr>
+                                <tr><td><strong>الفاء (ف)</strong></td><td>الترتيب والتعقيب (مباشرة)</td></tr>
+                                <tr><td><strong>ثم (ثمّ)</strong></td><td>الترتيب والتراخي (بمهلة)</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fasl Section -->
+            <section class="section" id="fasl" style="background: var(--bg-tertiary);">
+                <div class="container">
+                    <h2>موجبات الفصل الثلاثة</h2>
+                    <p style="margin-bottom: 30px;">يجب الفصل (ترك العطف بالواو) في ثلاثة مواضع أساسية. انقر على المخطط أدناه لرؤية الشرح والأمثلة.</p>
+                    
+                    <!-- SVG Diagram Fasl -->
+                    <div class="diagram-container">
+                        <svg viewBox="0 0 800 300" width="100%" height="100%">
+                            <path d="M 400 60 L 400 120" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 200 120 L 200 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 400 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 600 120 L 600 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            
+                            <g class="node">
+                                <rect x="300" y="20" width="200" height="40" rx="20" fill="var(--bg-secondary)" stroke="var(--primary-color)" stroke-width="2"/>
+                                <text x="400" y="45" text-anchor="middle">موجبات الفصل</text>
+                            </g>
+                            
+                            <g class="node" onclick="openAccordion('acc-f1')">
+                                <rect x="100" y="180" width="200" height="60" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="200" y="210" text-anchor="middle">١. كمال الاتصال</text>
+                                <text x="200" y="228" text-anchor="middle" class="sub-text" fill="var(--text-muted)">(توكيد، بيان، أو بدل)</text>
+                            </g>
+                            <g class="node" onclick="openAccordion('acc-f2')">
+                                <rect x="300" y="180" width="200" height="60" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="400" y="210" text-anchor="middle">٢. كمال الانقطاع</text>
+                                <text x="400" y="228" text-anchor="middle" class="sub-text" fill="var(--text-muted)">(اختلاف خبراً وإنشاءً)</text>
+                            </g>
+                            <g class="node" onclick="openAccordion('acc-f3')">
+                                <rect x="500" y="180" width="200" height="60" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="600" y="210" text-anchor="middle">٣. شبه كمال الاتصال</text>
+                                <text x="600" y="228" text-anchor="middle" class="sub-text" fill="var(--text-muted)">(جواب سؤال مقدر)</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div id="fasl-accordions" style="margin-top: 30px;">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wasl Section -->
+            <section class="section" id="wasl">
+                <div class="container">
+                    <h2>موجبات الوصل الثلاثة</h2>
+                    <p style="margin-bottom: 30px;">يجب الوصل (العطف بالواو) في ثلاثة مواضع أساسية. انقر على المخطط أدناه.</p>
+
+                    <!-- SVG Diagram Wasl -->
+                    <div class="diagram-container">
+                        <svg viewBox="0 0 800 300" width="100%" height="100%">
+                            <path d="M 400 60 L 400 120" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 180 120 L 180 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 400 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            <path d="M 400 120 L 620 120 L 620 180" stroke="var(--border-color)" stroke-width="2" fill="none"/>
+                            
+                            <g class="node">
+                                <rect x="300" y="20" width="200" height="40" rx="20" fill="var(--bg-secondary)" stroke="var(--accent-color)" stroke-width="2"/>
+                                <text x="400" y="45" text-anchor="middle">موجبات الوصل</text>
+                            </g>
+                            
+                            <g class="node" onclick="openAccordion('acc-w1')">
+                                <rect x="60" y="180" width="240" height="80" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="180" y="210" text-anchor="middle">١. التشريك في الإعراب</text>
+                                <text x="180" y="230" text-anchor="middle" class="sub-text" fill="var(--text-muted)">اشتراك في الحكم الإعرابي</text>
+                            </g>
+                            <g class="node" onclick="openAccordion('acc-w2')">
+                                <rect x="310" y="180" width="180" height="80" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="400" y="210" text-anchor="middle">٢. اتفاق الجملتين</text>
+                                <text x="400" y="230" text-anchor="middle" class="sub-text" fill="var(--text-muted)">اتفاق خبراً وإنشاءً</text>
+                                <text x="400" y="245" text-anchor="middle" class="sub-text" fill="var(--text-muted)">مع المناسبة</text>
+                            </g>
+                            <g class="node" onclick="openAccordion('acc-w3')">
+                                <rect x="500" y="180" width="240" height="80" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <text x="620" y="210" text-anchor="middle">٣. إيهام الفصل</text>
+                                <text x="620" y="230" text-anchor="middle" class="sub-text" fill="var(--text-muted)">الفصل يوهم خلاف المقصود</text>
+                                <text x="620" y="245" text-anchor="middle" class="sub-text" fill="var(--text-muted)">(كالدعاء بالشر)</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div id="wasl-accordions" style="margin-top: 30px;">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Penentu Wizard Section -->
+            <section class="section" id="penentu" style="background: var(--bg-tertiary);">
+                <div class="container">
+                    <h2 style="text-align: center; display: block; margin: 0 auto 40px; width: fit-content;">المُحَدِّد (المرشد التفاعلي للاختبار)</h2>
+                    <div class="card" style="max-width: 700px; margin: 0 auto;">
+                        <p style="text-align: center; margin-bottom: 20px;">اختبر نفسك! سيقوم النظام باختيار مثال عشوائي، وعليك الإجابة بـ (نعم) أو (لا) لمعرفة الحكم الصحيح مع التعليل.</p>
+                        
+                        <div id="wizard-setup" style="text-align: center;">
+                            <button class="btn btn-primary" onclick="startWizardTest()">اختبر نفسك بمثال عشوائي</button>
+                        </div>
+
+                        <div id="wizard-active" style="display: none;">
+                            <div class="example-card" style="margin-bottom: 20px; text-align: center;">
+                                <div id="wizard-ex-text" class="arabic-text" style="font-size: 1.8rem; margin-bottom: 10px;"></div>
+                            </div>
+
+                            <div id="wizard-feedback" class="wizard-feedback"></div>
+
+                            <div id="wizard-container" style="margin-top: 20px;">
+                                <div class="wizard-step active" id="w-step-1">
+                                    <div class="wizard-question">١. هل الجملة الثانية مؤكدة للأولى، أو مبينة لها، أو بدل منها؟</div>
+                                    <div class="wizard-options">
+                                        <button class="btn btn-primary" onclick="submitWizardAnswer(1, 'yes')">نعم</button>
+                                        <button class="btn btn-outline" onclick="submitWizardAnswer(1, 'no')">لا</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="wizard-step" id="w-step-2">
+                                    <div class="wizard-question">٢. هل الجملة الثانية جواب لسؤال مقدر يُفهم من الجملة الأولى؟</div>
+                                    <div class="wizard-options">
+                                        <button class="btn btn-primary" onclick="submitWizardAnswer(2, 'yes')">نعم</button>
+                                        <button class="btn btn-outline" onclick="submitWizardAnswer(2, 'no')">لا</button>
+                                    </div>
+                                </div>
+
+                                <div class="wizard-step" id="w-step-3">
+                                    <div class="wizard-question">٣. هل الجملتان مختلفتان خبراً وإنشاءً (لفظاً أو معنى)، أو لا توجد مناسبة بينهما إطلاقاً؟</div>
+                                    <div class="wizard-options">
+                                        <button class="btn btn-primary" onclick="submitWizardAnswer(3, 'yes')">نعم</button>
+                                        <button class="btn btn-outline" onclick="submitWizardAnswer(3, 'no')">لا</button>
+                                    </div>
+                                </div>
+
+                                <div class="wizard-step" id="w-step-4">
+                                    <div class="wizard-question">٤. على الرغم من اختلافهما أو انعدام المناسبة، هل تَرْكُ العطف (الفصل) يوهم خلاف المقصود (كأن يُظن أنه دعاء بالشر وهو للخير)؟</div>
+                                    <div class="wizard-options">
+                                        <button class="btn btn-primary" onclick="submitWizardAnswer(4, 'yes')">نعم</button>
+                                        <button class="btn btn-outline" onclick="submitWizardAnswer(4, 'no')">لا</button>
+                                    </div>
+                                </div>
+
+                                <div class="wizard-step" id="w-step-5">
+                                    <div class="wizard-question">٥. هل تشترك الجملتان في الحكم الإعرابي، أو تتفقان خبراً وإنشاءً مع وجود المناسبة التامة؟</div>
+                                    <div class="wizard-options">
+                                        <button class="btn btn-primary" onclick="submitWizardAnswer(5, 'yes')">نعم</button>
+                                        <button class="btn btn-outline" onclick="submitWizardAnswer(5, 'no')">لا</button>
+                                    </div>
+                                </div>
+
+                                <div class="wizard-step" id="w-step-result">
+                                    <h3 id="w-res-title" style="color: var(--primary-color);"></h3>
+                                    <p id="w-res-desc" style="margin-bottom: 20px; font-size: 1.2rem;"></p>
+                                    <button class="btn btn-outline" onclick="startWizardTest()">جرب مثالاً آخر</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latihan Section -->
+            <section class="section" id="latihan">
+                <div class="container">
+                    <h2 style="text-align: center; display: block; margin: 0 auto 40px; width: fit-content;">التدريبات العملية</h2>
+                    
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab('quiz')">الاختبار (١٢ سؤالاً)</button>
+                        <button class="tab-btn" onclick="switchTab('flashcard')">البطاقات التعليمية</button>
+                        <button class="tab-btn" onclick="switchTab('dnd')">لعبة المطابقة</button>
+                    </div>
+
+                    <!-- Tab: Kuiz -->
+                    <div id="tab-quiz" class="tab-content active">
+                        <div class="quiz-container text-center" id="quiz-ui">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; color: var(--text-muted);">
+                                <span id="quiz-progress-text">السؤال ١ / ١٢</span>
+                            </div>
+                            <div id="quiz-question-box">
+                                <p class="arabic-text" id="quiz-q-arabic" style="text-align: center;"></p>
+                                <h3 id="quiz-q-text" style="font-size: 1.4rem; margin-top: 15px;"></h3>
+                                <div class="quiz-options" id="quiz-options-box"></div>
+                            </div>
+                            <button id="quiz-next-btn" class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="nextQuiz()">التالي</button>
+                        </div>
+                        <div class="quiz-container text-center" id="quiz-result" style="display: none; text-align: right;">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: bold; letter-spacing: 1px;">CREDIT TO DR. TAUFIQ | FKI, UNISZA</p>
+                                <h3 style="color: var(--primary-color); font-size: 1.8rem; margin-top: 10px;">النتيجة النهائية</h3>
+                                <div id="quiz-final-pct" style="font-size: 3.5rem; font-weight: bold; color: var(--accent-color); direction: ltr; margin: 10px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">0%</div>
+                                
+                                <div style="font-size: 1.2rem; margin: 10px 0; background: var(--bg-tertiary); padding: 15px; border-radius: 8px; display: inline-block; min-width: 280px; text-align: right;">
+                                    <div><strong>المستوى:</strong> <span id="quiz-level" style="color: var(--primary-color);"></span></div>
+                                    <div style="margin: 8px 0;"><strong>الإجابات الصحيحة:</strong> <span id="quiz-final-score" style="direction: ltr; display: inline-block; font-weight: bold;">0/12</span></div>
+                                    <div><strong>نقاط الخبرة المكتسبة:</strong> <span id="quiz-xp" style="direction: ltr; display: inline-block; color: #d97706; font-weight: bold;">+0 XP</span></div>
+                                </div>
+                            </div>
+                            
+                            <h4 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 30px; font-size: 1.3rem;">تفاصيل الإجابات</h4>
+                            <div id="quiz-details" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                                <!-- details generated by JS -->
+                            </div>
+                            
+                            <button class="btn btn-primary" style="margin-top: 30px; width: 100%;" onclick="initQuiz()">أعد الاختبار</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Flashcard -->
+                    <div id="tab-flashcard" class="tab-content">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <p>انقر على البطاقة لقلبها ومعرفة الجواب.</p>
+                        </div>
+                        <div class="flashcard-container" onclick="this.querySelector('.flashcard').classList.toggle('is-flipped')">
+                            <div class="flashcard">
+                                <div class="flashcard-face flashcard-front">
+                                    <p class="arabic-text" id="fc-arabic">وَإِذَا تُتْلَىٰ عَلَيْهِ آيَاتُنَا وَلَّىٰ مُسْتَكْبِرًا كَأَن لَّمْ يَسْمَعْهَا كَأَنَّ فِي أُذُنَيْهِ وَقْرًا</p>
+                                    <p style="font-size: 1rem; color: var(--text-muted); margin-top: 15px;">(انقر لرؤية الحكم)</p>
+                                </div>
+                                <div class="flashcard-face flashcard-back">
+                                    <h3 id="fc-rule" style="margin-bottom: 10px;">فصل (كمال الاتصال - تأكيد)</h3>
+                                    <div id="fc-malay" class="malay-text" style="font-size: 1rem; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px;">كَأَنَّ فِي أُذُنَيْهِ وَقْرًا menguatkan كَأَن لَّمْ يَسْمَعْهَا.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                            <button class="btn btn-outline" onclick="prevFc()">السابق</button>
+                            <span style="align-self: center; font-weight: 700; direction: ltr; font-family: Inter;" id="fc-counter">1/10</span>
+                            <button class="btn btn-outline" onclick="nextFc()">التالي</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Drag and Drop -->
+                    <div id="tab-dnd" class="tab-content">
+                        <p style="text-align: center; margin-bottom: 20px;">اسحب المثال إلى المربع الصحيح (أو انقر على العنصر ثم انقر على المربع في الهواتف المحمولة).</p>
+                        <div class="dnd-container">
+                            <div class="dnd-items" id="dnd-source">
+                                <!-- Items generated via JS -->
+                            </div>
+                            <div class="dnd-targets">
+                                <div class="dnd-target" data-cat="fasl-ittisal" ondragover="allowDrop(event)" ondrop="drop(event)" onclick="handleMobileDrop(this)">
+                                    <h4>فصل: كمال الاتصال</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">(توكيد / بيان / بدل)</p>
+                                </div>
+                                <div class="dnd-target" data-cat="fasl-inqita" ondragover="allowDrop(event)" ondrop="drop(event)" onclick="handleMobileDrop(this)">
+                                    <h4>فصل: كمال الانقطاع</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">(مختلفان / لا مناسبة)</p>
+                                </div>
+                                <div class="dnd-target" data-cat="wasl-semua" ondragover="allowDrop(event)" ondrop="drop(event)" onclick="handleMobileDrop(this)">
+                                    <h4>مواضع الوصل</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">(إعراب / اتفاق / إيهام)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn btn-primary" onclick="checkDnd()">تحقق من الإجابة</button>
+                            <button class="btn btn-outline" onclick="resetDnd()">إعادة</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rujukan Pantas Section -->
+            <section class="section" id="rujukan" style="background: var(--bg-tertiary);">
+                <div class="container">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px; gap: 15px;">
+                        <h2>الخلاصة والمرجع السريع</h2>
+                        <button class="btn btn-outline" onclick="window.print()">🖨️ طباعة الخلاصة</button>
+                    </div>
+                    
+                    <input type="text" id="search-input" placeholder="ابحث عن مثال أو حكم..." style="width: 100%; padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 20px; font-family: inherit; font-size: 1.1rem; background: var(--bg-secondary); color: var(--text-main);">
+                    
+                    <div class="table-responsive card" style="padding: 0; overflow: hidden;">
+                        <table id="summary-table">
+                            <thead>
+                                <tr>
+                                    <th>الحكم</th>
+                                    <th>القسم / السبب</th>
+                                    <th>المثال العربي</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p><strong>المصدر:</strong> مادة البلاغة — باب الفصل والوصل (علم المعاني).</p>
+                <p class="malay-text" style="font-size: 0.85rem; margin-top: 5px; text-align: center;">*Terjemahan Melayu ialah terjemahan makna untuk tujuan pembelajaran dan bukan terjemahan rasmi.</p>
+                <p style="margin-top: 20px;">&copy; ٢٠٢٦ صُمم لأغراض تعليمية.</p>
+            </div>
+        </footer>
+
+        <button class="scroll-top" id="scroll-top" aria-label="أعلى الصفحة" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ================= BACKGROUND SPARKLES =================
+        function createSparkles() {
+            const container = document.getElementById('sparkle-container');
+            const sparkleCount = window.innerWidth < 768 ? 15 : 30; // Kurangkan partikel di fon pintar
+            for (let i = 0; i < sparkleCount; i++) {
+                let sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparkle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        // ================= DATA =================
+        const dataMaster = [
+            // FASL 1: Kamal Ittisal
+            { id: 'f1a1', rule: 'فصل', cat: 'كمال الاتصال (تأكيد)', type: 'قرآن', ar: 'وَإِذَا تُتْلَىٰ عَلَيْهِ آيَاتُنَا وَلَّىٰ مُسْتَكْبِرًا كَأَن لَّمْ يَسْمَعْهَا كَأَنَّ فِي أُذُنَيْهِ وَقْرًا', ms: 'Apabila ayat-ayat Kami dibacakan kepadanya, dia berpaling dengan sombong seolah-olah dia tidak mendengarnya, seolah-olah di kedua telinganya ada sumbatan. (Luqman: 7)', hur: 'الجملة الثانية (كَأَنَّ فِي أُذُنَيْهِ وَقْرًا) مؤكدة للجملة الأولى (كَأَن لَّمْ يَسْمَعْهَا) لأن المعنى واحد.' },
+            { id: 'f1a2', rule: 'فصل', cat: 'كمال الاتصال (تأكيد)', type: 'شعر', ar: 'وَمَا الدَّهْرُ إِلَّا مِنْ رُوَاةِ قَصَائِدِي ... إِذَا قُلْتُ شِعْرًا أَصْبَحَ الدَّهْرُ مُنْشِدَا', ms: 'Masa itu tidak lain melainkan perawi qasidah-qasidahku; apabila aku bersyair, masa pun menjadi pelantunnya. (al-Mutanabbi)', hur: 'الشطر الثاني مؤكد للشطر الأول (المعنى واحد).' },
+            { id: 'f1b1', rule: 'فصل', cat: 'كمال الاتصال (بيان)', type: 'قرآن', ar: 'فَوَسْوَسَ إِلَيْهِ الشَّيْطَانُ قَالَ يَا آدَمُ هَلْ أَدُلُّكَ عَلَىٰ شَجَرَةِ الْخُلْدِ وَمُلْكٍ لَّا يَبْلَىٰ', ms: 'Lalu syaitan membisikkan kepadanya, katanya: "Wahai Adam, mahukah aku tunjukkan kepadamu pokok kekekalan dan kerajaan yang tidak akan binasa?" (Taha: 120)', hur: 'جملة (قَالَ يَا آدَمُ...) عطف بيان لجملة (فَوَسْوَسَ) السابقة، لأنها توضح ماهية الوسوسة.' },
+            { id: 'f1b2', rule: 'فصل', cat: 'كمال الاتصال (بيان)', type: 'شعر', ar: 'النَّاسُ لِلنَّاسِ مِنْ بَدْوٍ وَحَاضِرَةٍ بَعْضُهُمْ لِبَعْضٍ وَإِنْ لَمْ يَشْعُرُوا خَدَمُ', ms: 'Manusia untuk manusia, orang desa dan orang kota; sebahagian mereka menjadi pelayan kepada sebahagian yang lain, walaupun mereka tidak menyedarinya.', hur: 'الجملة الثانية جاءت لبيان وتوضيح الأولى.', warn: true },
+            { id: 'f1b3', rule: 'فصل', cat: 'كمال الاتصال (بيان)', type: 'شعر', ar: 'حَسْبُ الْخَلِيلَيْنِ نَأْيُ الْأَرْضِ بَيْنَهُمَا ... هَذَا عَلَيْهَا وَهَذَا تَحْتَهَا بَلِيَ', ms: 'Cukuplah bagi dua sahabat jarak bumi di antara mereka: yang seorang di atasnya, yang seorang lagi di bawahnya telah reput.', hur: 'الشطر الثاني يوضح ويفسر البعد المقصود في الشطر الأول.', warn: true },
+            { id: 'f1c1', rule: 'فصل', cat: 'كمال الاتصال (بدل)', type: 'قرآن', ar: 'يُدَبِّرُ الْأَمْرَ يُفَصِّلُ الْآيَاتِ لَعَلَّكُم بِلِقَاءِ رَبِّكُمْ تُوقِنُونَ', ms: 'Dia mentadbir segala urusan, menjelaskan ayat-ayat-Nya supaya kamu yakin akan pertemuan dengan Tuhanmu. (Ar-Ra\'d: 2)', hur: 'جملة (يُفَصِّلُ الْآيَاتِ) بدل بعض من كل من (يُدَبِّرُ الْأَمْرَ) لأن تفصيل الآيات جزء من تدبير الأمور.' },
+            { id: 'f1c2', rule: 'فصل', cat: 'كمال الاتصال (بدل)', type: 'قرآن', ar: 'وَإِذْ أَنجَيْنَاكُم مِّنْ آلِ فِرْعَوْنَ يَسُومُونَكُمْ سُوءَ الْعَذَابِ يُقَتِّلُونَ أَبْنَاءَكُمْ وَيَسْتَحْيُونَ نِسَاءَكُمْ', ms: 'Dan (ingatlah) ketika Kami menyelamatkan kamu daripada pengikut Firaun yang menyeksa kamu dengan azab yang amat buruk; mereka membunuh anak-anak lelaki kamu dan membiarkan hidup perempuan-perempuan kamu. (Al-A\'raf: 141)', hur: 'جملة (يُقَتِّلُونَ أَبْنَاءَكُمْ) بدل، وهي تفسر وتبين نوع العذاب المذكور في الجملة الأولى.' },
+            // FASL 2: Kamal الانقطاع
+            { id: 'f2a1', rule: 'فصل', cat: 'كمال الانقطاع (اختلاف خبرا وإنشاء)', type: 'قرآن', ar: 'فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا', ms: 'Maka aku katakan: Mohonlah ampun kepada Tuhan kamu, sesungguhnya Dia Maha Pengampun. (Nuh: 10)', hur: 'الجملة الأولى (اسْتَغْفِرُوا) إنشائية (أمر)، والثانية (إِنَّهُ كَانَ غَفَّارًا) خبرية، فاختلفتا لفظاً ومعنى.' },
+            { id: 'f2a2', rule: 'فصل', cat: 'كمال الانقطاع (اختلاف خبرا وإنشاء)', type: 'حديث', ar: 'أَيُّهَا النَّاسُ إِنِّي قَدْ وُلِّيتُ وَلَسْتُ بِخَيْرِكُمْ', ms: 'Wahai manusia, sesungguhnya aku telah dilantik memegang urusan kamu, sedang aku bukanlah yang terbaik بينكم. (Kata Abu Bakr)', hur: 'الجملة الأولى إنشائية (نداء) والثانية خبرية، فلم تُعطف.' },
+            { id: 'f2a3', rule: 'فصل', cat: 'كمال الانقطاع (اختلاف خبرا وإنشاء)', type: 'قرآن', ar: 'وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ', ms: 'Dan tidak sama kebaikan dengan kejahatan. Tolaklah (kejahatan) dengan cara yang lebih baik. (Fussilat: 34)', hur: 'الأولى جملة خبرية، والثانية (ادْفَعْ) جملة إنشائية طلبية.' },
+            { id: 'f2b1', rule: 'فصل', cat: 'كمال الانقطاع (مختلفان معنى لا لفظا)', type: 'مثال', ar: 'سَافَرَ أَخِي إِلَى عَمَلٍ، أَعَانَهُ اللَّهُ', ms: 'Saudaraku bermusafir untuk bekerja, semoga Allah membantunya.', hur: 'الجملتان خبريتان لفظاً، ولكن الثانية تفيد الدعاء (إنشائية معنى).' },
+            { id: 'f2c1', rule: 'فصل', cat: 'كمال الانقطاع (انعدام المناسبة)', type: 'شعر', ar: 'إِنَّمَا الْمَرْءُ بِأَصْغَرَيْهِ ... كُلُّ امْرِئٍ رَهِينٌ بِمَا لَدَيْهِ', ms: 'Sesungguhnya seseorang itu dinilai dengan dua perkara terkecilnya; setiap orang tergadai dengan apa yang ada padanya.', hur: 'الجملتان منفصلتان لعدم وجود المناسبة والارتباط الذي يتطلبه العطف.' },
+            { id: 'f2c2', rule: 'فصل', cat: 'كمال الانقطاع (انعدام المناسبة)', type: 'مثال', ar: 'رَأْسُ الْحِكْمَةِ مَخَافَةُ اللَّهِ. الْحَسُودُ لَا يَسُودُ.', ms: 'Pangkal hikmah ialah takut kepada Allah. Pendengki tidak akan menjadi pemimpin.', hur: 'كل جملة مستقلة بمعناها ولا توجد بينهما مناسبة أو ارتباط، فوجب الفصل.' },
+            // FASL 3: Syibh Kamal الاتصال
+            { id: 'f3a1', rule: 'فصل', cat: 'شبه كمال الاتصال', type: 'قرآن', ar: 'فَلَمَّا رَأَىٰ أَيْدِيَهُمْ لَا تَصِلُ إِلَيْهِ نَكِرَهُمْ وَأَوْجَسَ مِنْهُمْ خِيفَةً قَالُوا لَا تَخَفْ', ms: 'Apabila dilihatnya tangan mereka tidak sampai kepadanya, dia merasa pelik و takut. Mereka berkata: Jangan takut. (Hud: 70)', hur: 'جملة (قَالُوا لَا تَخَفْ) فُصلت لأنها جواب لسؤال مقدر يفهم من الجملة الأولى، وكأن سائلاً سأل: فماذا قالوا؟' },
+            { id: 'f3a2', rule: 'فصل', cat: 'شبه كمال الاتصال', type: 'قرآن', ar: 'وَمَا أُبَرِّئُ نَفْسِي إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي', ms: 'Dan aku tidak membersihkan diriku; sesungguhnya nafsu itu sangat menyuruh kepada kejahatan. (Yusuf: 53)', hur: 'جملة (إِنَّ النَّفْسَ...) جواب لسؤال مقدر: ولِمَ لا تبرئ نفسك؟ (استئناف بياني).' },
+            { id: 'f3a3', rule: 'فصل', cat: 'شبه كمال الاتصال', type: 'شعر', ar: 'قَالَ لِي: كَيْفَ أَنْتَ؟ قُلْتُ: عَلِيلٌ ... سَهَرٌ دَائِمٌ وَحُزْنٌ طَوِيلُ', ms: 'Dia bertanya: Bagaimana keadaanmu? Aku jawab: Sakit; berjaga malam berterusan dan dukacita panjang.', hur: 'جملة (سَهَرٌ دَائِمٌ) استئنافية كأنها جواب لسؤال: ما سبب علتك؟' },
+            // WASL 1: الإعراب
+            { id: 'w1a1', rule: 'وصل', cat: 'التشريك في الحكم الإعرابي', type: 'قرآن', ar: 'وَالَّذِينَ تَدْعُونَ مِن دُونِهِ لَا يَسْتَطِيعُونَ نَصْرَكُمْ وَلَا أَنفُسَهُمْ يَنصُرُونَ', ms: 'Dan mereka yang kamu seru selain Allah tidak mampu menolong kamu, dan tidak (mampu) menolong diri mereka sendiri. (Al-A\'raf: 197)', hur: 'عُطفت الجملة الثانية على الأولى لأنها تشاركها في الموقع الإعرابي (كلاهما في محل رفع خبر المبتدأ).' },
+            { id: 'w1a2', rule: 'وصل', cat: 'التشريك في الحكم الإعرابي', type: 'شعر', ar: '(أبيات المتنبي والمعري المذكورة في المصدر الأساسي)', ms: 'Teks asal kabur.', hur: 'عُطفت الجملة الثانية لاشتراكها في الموقع الإعرابي (صفة لنكرة) مع الجملة الأولى.', warn: true },
+            // WASL 2: الاتفاق
+            { id: 'w2a1', rule: 'وصل', cat: 'اتفاق الجملتين (خبريتان)', type: 'قرآن', ar: 'إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ وَإِنَّ الْفُجَّارَ لَفِي جَحِيمٍ', ms: 'Sesungguhnya orang-orang yang berbakti berada dalam kenikmatan, dan orang-orang yang derhaka berada في neraka Jahim. (Al-Infitar: 13-14)', hur: 'الجملتان اتفقتا خبراً مع وجود المناسبة التامة (التقابل).' },
+            { id: 'w2a2', rule: 'وصل', cat: 'اتفاق الجملتين (خبريتان)', type: 'حديث', ar: 'الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ...', ms: 'Bersuci itu separuh daripada iman; Alhamdulillah memenuhi timbangan... (Riwayat Muslim)', hur: 'اتفاق خبراً مع وجود الرابطة المعنوية والمناسبة.' },
+            { id: 'w2b1', rule: 'وصل', cat: 'اتفاق الجملتين (إنشائيتان)', type: 'قرآن', ar: 'يَا أَيُّهَا الَّذِينَ آمَنُوا قَاتِلُوا الَّذِينَ يَلُونَكُم مِّنَ الْكُفَّارِ وَلْيَجِدُوا فِيكُمْ غِلْظَةً', ms: 'Wahai orang-orang yang beriman, perangilah orang-orang kafir yang berhampiran dengan kamu, dan hendaklah mereka mendapati kekerasan pada kamu. (At-Tawbah: 123)', hur: 'الجملتان متفقتان إنشاءً (أمر) مع وجود المناسبة.' },
+            { id: 'w2b2', rule: 'وصل', cat: 'اتفاق الجملتين (إنشائيتان)', type: 'قرآن', ar: 'وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا وَبِالْوَالِدَيْنِ إِحْسَانًا', ms: 'Dan sembahlah Allah serta janganlah kamu menyekutukan-Nya dengan sesuatu pun, dan berbuat baiklah kepada kedua ibu bapa. (An-Nisa: 36)', hur: 'الجملتان إنشائيتان معطوفتان لاتفاقهما في الإنشاء ووجود المناسبة.' },
+            // WASL 3: الإيهام
+            { id: 'w3a1', rule: 'وصل', cat: 'إيهام الفصل خلاف المقصود', type: 'مثال', ar: 'لَا وَشَفَاكَ اللَّهُ', ms: 'Tidak, dan semoga Allah menyembuhkanmu.', hur: 'إذا تُرِكت الواو وقيل (لا شفاك الله) توهَّم السامع أنه دعاء بالشر، فوجب الوصل لدفع الإيهام.' },
+            { id: 'w3a2', rule: 'وصل', cat: 'إيهام الفصل خلاف المقصود', type: 'مثال', ar: 'لَا وَأَيَّدَ اللَّهُ الْأَمِيرَ', ms: 'Tidak, dan semoga Allah menguatkan Amir.', hur: 'وجب الوصل لتجنب التوهم بالدعاء بالشر على الأمير إذا قيل (لا أيد الله الأمير).' }
+        ];
+
+        const quizData = [
+            { q: 'لماذا لم تُعطف (فُصلت) هذه الجملة عما قبلها؟', ar: 'كَأَنَّ فِي أُذُنَيْهِ وَقْرًا', options: ['لأنها بدل من الأولى', 'لأنها مؤكدة للأولى في المعنى (كمال الاتصال)', 'لاختلافهما خبراً وإنشاءً', 'لأنها جواب لسؤال مقدر'], ans: 1 },
+            { q: 'ما هو سبب الوصل بالواو في قولنا "لَا وَشَفَاكَ اللَّهُ"؟', ar: 'لَا وَشَفَاكَ اللَّهُ', options: ['التشريك في الإعراب', 'اتفاق الجملتين في الإنشاء', 'إيهام الفصل خلاف المقصود (الدعاء بالشر)', 'التوكيد المعنوي'], ans: 2 },
+            { q: 'في سورة يوسف، لِمَ فُصلت جملة "إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ" ولم تُعطف؟', ar: 'وَمَا أُبَرِّئُ نَفْسِي إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ', options: ['لأنها جواب لسؤال مقدر (شبه كمال الاتصال)', 'لأنها بدل', 'لاتفاقهما خبراً', 'لاختلافهما لفظاً ومعنى'], ans: 0 },
+            { q: 'في قوله تعالى، ما هو دور الجملة الثانية الذي استوجب فصلها؟', ar: 'يُدَبِّرُ الْأَمْرَ يُفَصِّلُ الْآيَاتِ', options: ['تأكيد للأولى', 'بيان للأولى', 'بدل (لأن التفصيل جزء من التدبير)', 'استئناف بياني'], ans: 2 },
+            { q: 'الجملة الأولى نداء (إنشاء)، والثانية تصريح (خبر). هذا يندرج تحت:', ar: 'أَيُّهَا النَّاسُ إِنِّي قَدْ وُلِّيتُ', options: ['كمال الاتصال', 'كمال الانقطاع', 'شبه كمال الاتصال', 'موجبات الوصل'], ans: 1 },
+            { q: 'لماذا خص علماء المعاني مبحث "الفصل والوصل" بحرف الواو فقط؟', ar: 'الفصل والوصل', options: ['لأن الواو أطول الحروف', 'لأن استخدامها واضح ولا لبس فيه', 'لأنها تفيد الجمع المطلق ولا تفيد ترتيباً، وتحتاج دقة للتأمل في المعاني', 'لأنها تفيد الترتيب والتعقيب'], ans: 2 },
+            { q: 'ما هو الحكم البلاغي للجملتين المشتركتين في المحل الإعرابي؟', ar: 'لَا يَسْتَطِيعُونَ نَصْرَكُمْ وَلَا أَنفُسَهُمْ يَنصُرُونَ', options: ['وجوب الفصل', 'وجوب الوصل', 'جواز الفصل', 'جواز الوصل'], ans: 1 },
+            { q: 'وُصلت الجملتان الآتيتان بالواو لأنهما:', ar: 'إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ وَإِنَّ الْفُجَّارَ لَفِي جَحِيمٍ', options: ['إنشائيتان متفقتان', 'خبريتان متفقتان مع وجود المناسبة', 'تشتركان في الإعراب', 'لدفع الإيهام'], ans: 1 },
+            { q: 'في قولنا: "سَافَرَ أَخِي إِلَى عَمَلٍ، أَعَانَهُ اللَّهُ". لماذا فُصلت الجملة الثانية؟', ar: 'أَعَانَهُ اللَّهُ', options: ['لأنها إنشائية معنى والأولى خبرية (كمال الانقطاع)', 'لأنها بدل', 'لأنها مؤكدة', 'لأنها جواب لسؤال'], ans: 0 },
+            { q: 'لو جمعنا بين حكمتين: "رَأْسُ الْحِكْمَةِ مَخَافَةُ اللَّهِ" و "الْحَسُودُ لَا يَسُودُ"، فما الحكم البلاغي؟', options: ['وصل، لاتفاقهما خبراً', 'فصل (كمال الانقطاع) لعدم وجود المناسبة والارتباط', 'وصل، لدفع الإيهام', 'فصل لأنهما بدل'], ans: 1 },
+            { q: 'جملة "قَالَ يَا آدَمُ هَلْ أَدُلُّكَ..." مفصولة. وهي تمثل ___ لجملة "فَوَسْوَسَ".', ar: 'فَوَسْوَسَ إِلَيْهِ الشَّيْطَانُ قَالَ يَا آدَمُ', options: ['بدل', 'توكيد', 'عطف بيان (توضيح)', 'إنشاء'], ans: 2 },
+            { q: 'الشطر الثاني من الشعر "سَهَرٌ دَائِمٌ وَحُزْنٌ طَوِيلُ" هو جواب لسؤال مقدر. يُسمى هذا النوع بـ:', ar: 'سَهَرٌ دَائِمٌ وَحُزْنٌ طَوِيلُ', options: ['كمال الاتصال', 'شبه كمال الاتصال', 'كمال الانقطاع', 'التشريك الإعرابي'], ans: 1 }
+        ];
+
+        // ================= STATE & INIT =================
+        let appState = {
+            progress: [],
+            theme: 'light',
+            fontSize: 28
+        };
+
+        function init() {
+            // Load state
+            try {
+                const saved = localStorage.getItem('balaghahStateAr');
+                if (saved) appState = JSON.parse(saved);
+            } catch (e) { console.warn('LocalStorage unavailable'); }
+            
+            applyTheme();
+            applyFontSize();
+            updateProgressUI();
+            
+            // Render content
+            renderAccordions('fasl', 'fasl-accordions');
+            renderAccordions('wasl', 'wasl-accordions');
+            renderTable();
+            renderDndItems();
+            createSparkles(); // Initialize background effect
+            
+            // Listeners
+            document.getElementById('btn-theme').addEventListener('click', toggleTheme);
+            document.getElementById('btn-font-plus').addEventListener('click', () => changeFont(2));
+            document.getElementById('btn-font-minus').addEventListener('click', () => changeFont(-2));
+            document.getElementById('btn-menu').addEventListener('click', () => {
+                document.getElementById('nav-links').classList.toggle('active');
+            });
+            window.addEventListener('scroll', () => {
+                document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 300);
+            });
+            
+            initQuiz();
+            initFlashcards();
+        }
+
+        // ================= UI FUNCTIONS =================
+        function toggleTheme() {
+            appState.theme = appState.theme === 'light' ? 'dark' : 'light';
+            applyTheme();
+            saveState();
+        }
+
+        function applyTheme() {
+            document.body.setAttribute('data-theme', appState.theme);
+            document.getElementById('btn-theme').textContent = appState.theme === 'light' ? '🌙' : '☀️';
+        }
+
+        function changeFont(delta) {
+            appState.fontSize = Math.max(20, Math.min(40, appState.fontSize + delta));
+            applyFontSize();
+            saveState();
+        }
+
+        function applyFontSize() {
+            document.documentElement.style.setProperty('--arabic-font-size', `${appState.fontSize}px`);
+        }
+
+        function markDone(id) {
+            if (!appState.progress.includes(id)) {
+                appState.progress.push(id);
+                saveState();
+                updateProgressUI();
+            }
+            const btn = document.querySelector(`button[onclick="markDone('${id}')"]`);
+            if (btn) {
+                btn.innerHTML = '✅ تم الفهم';
+                btn.classList.remove('btn-outline');
+                btn.classList.add('btn-primary');
+                btn.style.backgroundColor = 'var(--success)';
+            }
+        }
+
+        function updateProgressUI() {
+            const total = dataMaster.length;
+            const done = appState.progress.length;
+            const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+            document.getElementById('stat-progress').textContent = `${pct}%`;
+        }
+
+        function saveState() {
+            try { localStorage.setItem('balaghahStateAr', JSON.stringify(appState)); } catch (e) {}
+        }
+
+        function copyText(txt) {
+            navigator.clipboard.writeText(txt).then(() => alert('تم نسخ النص!')).catch(() => alert('فشل النسخ.'));
+        }
+
+        // ================= RENDERING =================
+        function getBadge(type) {
+            let cl = 'badge-quran';
+            if (type === 'حديث') cl = 'badge-hadis';
+            if (type === 'شعر' || type === 'مثال') cl = 'badge-syair';
+            return `<span class="badge ${cl}">${type}</span>`;
+        }
+
+        function getSubtopicDesc(accId) {
+            const descs = {
+                'acc-f1': '<strong>كمال الاتصال:</strong> أن تتحد الجملتان اتحاداً تاماً، بأن تكون الثانية بمنزلة التوكيد للأولى، أو مبينة لها (عطف بيان)، أو بدلاً منها. وفي هذه الحالات يُترك العطف بالواو لعدم الحاجة إليه.',
+                'acc-f2': '<strong>كمال الانقطاع:</strong> أن تنقطع الرابطة بين الجملتين تماماً، إما لاختلافهما في الخبر والإنشاء (واحدة خبرية والأخرى إنشائية)، أو لانعدام المناسبة والارتباط المعنوي بينهما إطلاقاً.',
+                'acc-f3': '<strong>شبه كمال الاتصال:</strong> أن تكون الجملة الثانية قوية الارتباط بالأولى لكونها استئنافاً بيانياً؛ أي بمثابة الجواب لسؤال مقدر يُفهم ويُستنتج من الجملة الأولى.',
+                'acc-w1': '<strong>التشريك في الإعراب:</strong> أن يقصد المتكلم إشراك الجملة الثانية مع الأولى في نفس الحكم والموقع الإعرابي.',
+                'acc-w2': '<strong>اتفاق الجملتين:</strong> أن تتفق الجملتان خبراً وإنشاءً، لفظاً ومعنى، مع وجود "المناسبة" (الرابطة العقلية) ولا يوجد سبب يوجب الفصل.',
+                'acc-w3': '<strong>إيهام الفصل:</strong> أن تختلف الجملتان خبراً وإنشاءً (مما يوجب الفصل في الأصل)، ولكن إذا فُصلتا توهم السامع خلاف المقصود (كأن يُظن أنه دعاء بالشر وهو للخير)، فيجب الوصل بالواو لدفع هذا الإيهام.'
+            };
+            return descs[accId] || '';
+        }
+
+        function renderAccordions(rule, containerId) {
+            const groups = {
+                'acc-f1': dataMaster.filter(d => d.rule === 'فصل' && d.cat.includes('الاتصال')),
+                'acc-f2': dataMaster.filter(d => d.rule === 'فصل' && d.cat.includes('الانقطاع')),
+                'acc-f3': dataMaster.filter(d => d.rule === 'فصل' && d.cat.includes('شبه')),
+                'acc-w1': dataMaster.filter(d => d.rule === 'وصل' && d.cat.includes('إعراب')),
+                'acc-w2': dataMaster.filter(d => d.rule === 'وصل' && d.cat.includes('اتفاق')),
+                'acc-w3': dataMaster.filter(d => d.rule === 'وصل' && d.cat.includes('إيهام'))
+            };
+
+            let html = '';
+            const prefixes = rule === 'fasl' ? ['f1', 'f2', 'f3'] : ['w1', 'w2', 'w3'];
+            const titles = rule === 'fasl' ? 
+                ['١. كمال الاتصال (توكيد، بيان، بدل)', '٢. كمال الانقطاع (مختلفان خبرا وإنشاء)', '٣. شبه كمال الاتصال'] : 
+                ['١. التشريك في الحكم الإعرابي', '٢. اتفاق الجملتين خبرا أو إنشاء', '٣. إيهام الفصل خلاف المقصود'];
+
+            prefixes.forEach((p, i) => {
+                const accId = `acc-${p}`;
+                const items = groups[accId];
+                if (!items) return;
+
+                html += `
+                <div class="accordion-item" id="${accId}">
+                    <button class="accordion-header" onclick="toggleAccordion('${accId}')" aria-expanded="false">
+                        <span>${titles[i]} (${items.length} أمثلة)</span>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="subtopic-desc">${getSubtopicDesc(accId)}</div>
+                        ${items.map(d => `
+                            <div class="example-card">
+                                ${getBadge(d.type)}
+                                <div class="arabic-text" style="text-align: right;">${d.ar}</div>
+                                ${d.warn ? `<span class="badge badge-warning">يُرجى مراجعة المصدر الأصلي لبيت الشعر</span>` : ''}
+                                <div class="example-actions">
+                                    <button class="btn btn-outline" type="button" style="padding: 6px 12px; font-size: 0.9rem;" onclick="toggleBox('trans-${d.id}')">ملايو</button>
+                                    <button class="btn btn-outline" type="button" style="padding: 6px 12px; font-size: 0.9rem;" onclick="toggleBox('hur-${d.id}')">التفسير</button>
+                                    <button class="btn btn-outline" type="button" style="padding: 6px 12px; font-size: 0.9rem;" onclick="copyText('${d.ar}')">نسخ</button>
+                                    <button class="btn ${appState.progress.includes(d.id) ? 'btn-primary' : 'btn-outline'}" type="button" style="padding: 6px 12px; font-size: 0.9rem; ${appState.progress.includes(d.id) ? 'background-color: var(--success);' : ''}" onclick="markDone('${d.id}')">
+                                        ${appState.progress.includes(d.id) ? '✅ تم الفهم' : 'إشارة الفهم'}
+                                    </button>
+                                </div>
+                                <div class="translation-box malay-text" id="trans-${d.id}">${d.ms}</div>
+                                <div class="huraian-box" id="hur-${d.id}"><strong>السبب:</strong> ${d.hur}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+            });
+            document.getElementById(containerId).innerHTML = html;
+        }
+
+        function toggleAccordion(id) {
+            const btn = document.querySelector(`#${id} .accordion-header`);
+            const content = document.querySelector(`#${id} .accordion-content`);
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', !expanded);
+            content.classList.toggle('active');
+        }
+
+        function openAccordion(id) {
+            const rule = id.startsWith('acc-f') ? 'fasl' : 'wasl';
+            document.getElementById(rule).scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                const btn = document.querySelector(`#${id} .accordion-header`);
+                if (btn && btn.getAttribute('aria-expanded') === 'false') {
+                    toggleAccordion(id);
+                }
+            }, 500);
+        }
+
+        window.toggleBox = function(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                if(el.style.display === 'block') el.style.display = 'none';
+                else el.style.display = 'block';
+            }
+        };
+
+        function renderTable() {
+            const tbody = document.getElementById('table-body');
+            if (!tbody) return;
+            let html = '';
+            dataMaster.forEach(d => {
+                html += `
+                <tr>
+                    <td><span class="badge ${d.rule === 'فصل' ? 'badge-warning' : 'badge-quran'}">${d.rule}</span></td>
+                    <td>${d.cat}</td>
+                    <td class="arabic-text" style="font-size: 1.2rem; text-align: right;">${d.ar}</td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+
+            // Search Filter
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const val = e.target.value.toLowerCase();
+                    const rows = tbody.querySelectorAll('tr');
+                    rows.forEach(row => {
+                        const text = row.innerText.toLowerCase();
+                        row.style.display = text.includes(val) ? '' : 'none';
+                    });
+                });
+            }
+        }
+
+        // ================= WIZARD PENENTU (TEST) =================
+        let currentWizardExample = null;
+        
+        function startWizardTest() {
+            currentWizardExample = dataMaster[Math.floor(Math.random() * dataMaster.length)];
+            document.getElementById('wizard-setup').style.display = 'none';
+            document.getElementById('wizard-active').style.display = 'block';
+            
+            document.getElementById('wizard-ex-text').innerText = currentWizardExample.ar;
+            showWizardStep(1);
+        }
+
+        function showWizardStep(stepNum) {
+            document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+            document.getElementById(`w-step-${stepNum}`).classList.add('active');
+            document.getElementById('wizard-feedback').style.display = 'none';
+        }
+
+        function submitWizardAnswer(step, answerStr) {
+            let isCorrect = false;
+            let explanation = '';
+            let isFinal = false;
+            let finalTitle = '';
+
+            const cat = currentWizardExample.cat;
+            const isIttisal = cat.includes('كمال الاتصال');
+            const isSyibh = cat.includes('شبه');
+            const isInqita = cat.includes('كمال الانقطاع');
+            const isIham = cat.includes('إيهام');
+            const isTashrikOrIttifaq = cat.includes('إعراب') || cat.includes('اتفاق');
+
+            if (step === 1) { // Kamal Ittisal?
+                if (answerStr === 'yes') {
+                    if (isIttisal) { isCorrect = true; isFinal = true; finalTitle = 'فصل (كمال الاتصال)'; explanation = 'أحسنت! الجملة الثانية بمنزلة التوكيد أو البيان أو البدل للأولى، ولذلك وجب الفصل (كمال الاتصال). التفسير: ' + currentWizardExample.hur; }
+                    else { isCorrect = false; explanation = 'خاطئ! هذه الجملة ليست توكيداً أو بياناً أو بدلاً للأولى. حاول الإجابة بـ (لا).'; }
+                } else {
+                    if (!isIttisal) { isCorrect = true; explanation = 'إجابة صحيحة، ليست كمال اتصال. ننتقل للسؤال الثاني...'; setTimeout(() => showWizardStep(2), 1500); }
+                    else { isCorrect = false; explanation = 'خاطئ! تأمل جيداً، الجملة الثانية ترتبط بالأولى ارتباطاً وثيقاً (توكيد/بيان/بدل).'; }
+                }
+            } 
+            else if (step === 2) { // Syibh Kamal Ittisal?
+                if (answerStr === 'yes') {
+                    if (isSyibh) { isCorrect = true; isFinal = true; finalTitle = 'فصل (شبه كمال الاتصال)'; explanation = 'أحسنت! الجملة الثانية جواب لسؤال مقدر، ولذلك وجب الفصل. التفسير: ' + currentWizardExample.hur; }
+                    else { isCorrect = false; explanation = 'خاطئ! لا يُفهم سؤال مقدر من الجملة الأولى هنا. حاول الإجابة بـ (لا).'; }
+                } else {
+                    if (!isSyibh) { isCorrect = true; explanation = 'إجابة صحيحة. ننتقل للسؤال الثالث...'; setTimeout(() => showWizardStep(3), 1500); }
+                    else { isCorrect = false; explanation = 'خاطئ! الجملة الثانية هنا بمثابة جواب لاستفسار نشأ من الأولى.'; }
+                }
+            }
+            else if (step === 3) { // Inqita' or Iham pre-check
+                if (answerStr === 'yes') {
+                    if (isInqita || isIham) { isCorrect = true; explanation = 'إجابة صحيحة، هما مختلفتان أو لا مناسبة بينهما. ولكن لنفحص السؤال الرابع للتأكد...'; setTimeout(() => showWizardStep(4), 1500); }
+                    else { isCorrect = false; explanation = 'خاطئ! الجملتان متفقتان خبراً/إنشاءً أو تشتركان في الإعراب. حاول الإجابة بـ (لا).'; }
+                } else {
+                    if (!isInqita && !isIham) { isCorrect = true; explanation = 'إجابة صحيحة، ليستا مختلفتين. ننتقل للسؤال الخامس...'; setTimeout(() => showWizardStep(5), 1500); }
+                    else { isCorrect = false; explanation = 'خاطئ! الجملتان هنا مختلفتان خبراً وإنشاءً أو لا توجد مناسبة بينهما إطلاقاً.'; }
+                }
+            }
+            else if (step === 4) { // Iham vs Inqita'
+                if (answerStr === 'yes') {
+                    if (isIham) { isCorrect = true; isFinal = true; finalTitle = 'وصل (لإيهام الفصل خلاف المقصود)'; explanation = 'أحسنت! رغم اختلافهما، وجب الوصل بالواو لدفع الإيهام الخاطئ (كالدعاء بالشر). التفسير: ' + currentWizardExample.hur; }
+                    else { isCorrect = false; explanation = 'خاطئ! ترك العطف هنا لا يُحدث إيهاماً بالمعنى المعاكس كالدعاء بالشر. جرب (لا).'; }
+                } else {
+                    if (!isIham && isInqita) { isCorrect = true; isFinal = true; finalTitle = 'فصل (كمال الانقطاع)'; explanation = 'أحسنت! يجب الفصل لاختلاف الجملتين خبراً وإنشاءً أو لانعدام المناسبة، ولا يوجد إيهام يمنع الفصل. التفسير: ' + currentWizardExample.hur; }
+                    else { isCorrect = false; explanation = 'خاطئ! ترك العطف هنا سيُوقع السامع في فهم خاطئ، ففكر مرة أخرى.'; }
+                }
+            }
+            else if (step === 5) { // Tashrik or Ittifaq
+                if (answerStr === 'yes') {
+                    if (isTashrikOrIttifaq) { isCorrect = true; isFinal = true; finalTitle = 'وصل (للتشريك في الإعراب أو اتفاق الجملتين)'; explanation = 'أحسنت! يجب الوصل لاشتراكهما في الإعراب أو لاتفاقهما خبراً وإنشاءً مع المناسبة. التفسير: ' + currentWizardExample.hur; }
+                    else { isCorrect = false; explanation = 'خاطئ! بناءً على الإجابات السابقة، هذا الخيار لا يطابق المثال المعروض.'; }
+                } else {
+                    isCorrect = false; explanation = 'الرجاء إعادة تقييم المثال، فقد أخطأنا في إحدى الخطوات.';
+                }
+            }
+
+            const fbEl = document.getElementById('wizard-feedback');
+            fbEl.style.display = 'block';
+            fbEl.innerText = explanation;
+            
+            if (isCorrect) {
+                fbEl.className = 'wizard-feedback success';
+                if (isFinal) {
+                    setTimeout(() => {
+                        document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+                        document.getElementById('w-step-result').classList.add('active');
+                        document.getElementById('w-res-title').innerText = finalTitle;
+                        document.getElementById('w-res-desc').innerText = currentWizardExample.hur;
+                        fbEl.style.display = 'none';
+                    }, 2500);
+                }
+            } else {
+                fbEl.className = 'wizard-feedback error';
+            }
+        }
+
+        // ================= LATIHAN - TABS =================
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        // ================= KUIZ =================
+        let currentQ = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function initQuiz() {
+            currentQ = 0;
+            score = 0;
+            userAnswers = Array(quizData.length).fill(null);
+            document.getElementById('quiz-ui').style.display = 'block';
+            document.getElementById('quiz-result').style.display = 'none';
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = quizData[currentQ];
+            document.getElementById('quiz-progress-text').innerText = `السؤال ${currentQ + 1} / ${quizData.length}`;
+            
+            document.getElementById('quiz-q-arabic').innerText = q.ar || '';
+            document.getElementById('quiz-q-text').innerText = q.q;
+            
+            const opts = document.getElementById('quiz-options-box');
+            opts.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                let selectedClass = userAnswers[currentQ] === idx ? 'selected' : '';
+                opts.innerHTML += `<div class="quiz-option ${selectedClass}" onclick="checkAns(${idx}, this)">${opt}</div>`;
+            });
+            
+            const btn = document.getElementById('quiz-next-btn');
+            if (currentQ === quizData.length - 1) {
+                btn.innerText = 'تسليم (Hantar)';
+                btn.style.backgroundColor = 'var(--accent-color)';
+                btn.style.color = '#000';
+            } else {
+                btn.innerText = 'التالي';
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+            }
+        }
+
+        function checkAns(selected, el) {
+            const opts = document.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            userAnswers[currentQ] = selected;
+        }
+
+        function nextQuiz() {
+            if (currentQ < quizData.length - 1) {
+                currentQ++;
+                loadQuestion();
+            } else {
+                calculateResults();
+            }
+        }
+
+        function calculateResults() {
+            document.getElementById('quiz-ui').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+            
+            score = 0;
+            let detailsHtml = '';
+            
+            quizData.forEach((q, i) => {
+                let uAns = userAnswers[i];
+                let isCorrect = uAns === q.ans;
+                if (isCorrect) score++;
+                
+                let uAnsText = uAns !== null ? q.options[uAns] : 'لم يُجب (Tidak Dijawab)';
+                let cAnsText = q.options[q.ans];
+                
+                let userClass = isCorrect ? 'correct' : 'wrong';
+                
+                detailsHtml += `
+                <div class="detail-card">
+                    <div class="detail-q">${i + 1}. ${q.q} <br><span class="arabic-text" style="font-size: 1.3rem; color: var(--primary-color); display: block; margin-top: 5px;">${q.ar || ''}</span></div>
+                    <div class="detail-user ${userClass}">إجابتك: ${uAnsText}</div>
+                    ${!isCorrect ? `<div class="detail-correct">الإجابة الصحيحة: ${cAnsText}</div>` : ''}
+                </div>
+                `;
+            });
+            
+            let pct = Math.round((score / quizData.length) * 100);
+            let level = '';
+            if (pct <= 25) level = 'المتدرّب (Pelatih)';
+            else if (pct <= 50) level = 'المبتدئ (Pemula)';
+            else if (pct <= 75) level = 'الممارس (Pengamal)';
+            else if (pct < 100) level = 'المتمكن (Mahir)';
+            else level = 'الخبير (Pakar)';
+            
+            let xp = score * 50;
+            
+            document.getElementById('quiz-final-pct').innerText = `${pct}%`;
+            document.getElementById('quiz-level').innerText = level;
+            document.getElementById('quiz-final-score').innerText = `${score}/${quizData.length}`;
+            document.getElementById('quiz-xp').innerText = `+${xp} XP`;
+            
+            document.getElementById('quiz-details').innerHTML = detailsHtml;
+        }
+
+        // ================= FLASHCARDS =================
+        let fcIndex = 0;
+        const fcData = dataMaster.filter(d => d.type === 'قرآن' || d.type === 'حديث' || !d.warn).slice(0, 10);
+
+        function initFlashcards() {
+            loadFc();
+        }
+
+        function loadFc() {
+            const card = fcData[fcIndex];
+            document.querySelector('.flashcard').classList.remove('is-flipped');
+            setTimeout(() => {
+                document.getElementById('fc-arabic').innerText = card.ar;
+                document.getElementById('fc-rule').innerText = `${card.rule} (${card.cat})`;
+                document.getElementById('fc-malay').innerText = card.hur; // Still in Arabic (Huraian), for Malay translation of the meaning, you can swap to card.ms if preferred, but huraian is better for flashcard back.
+                document.getElementById('fc-counter').innerText = `${fcIndex + 1}/${fcData.length}`;
+            }, 300); 
+        }
+
+        function nextFc() {
+            fcIndex = (fcIndex + 1) % fcData.length;
+            loadFc();
+        }
+
+        function prevFc() {
+            fcIndex = (fcIndex - 1 + fcData.length) % fcData.length;
+            loadFc();
+        }
+
+        // ================= DRAG & DROP =================
+        const dndData = [
+            { id: 'd1', ar: 'يُدَبِّرُ الْأَمْرَ يُفَصِّلُ الْآيَاتِ', ans: 'fasl-ittisal' },
+            { id: 'd2', ar: 'لَا وَشَفَاكَ اللَّهُ', ans: 'wasl-semua' },
+            { id: 'd3', ar: 'وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ', ans: 'fasl-inqita' },
+            { id: 'd4', ar: 'إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ وَإِنَّ الْفُجَّارَ لَفِي جَحِيمٍ', ans: 'wasl-semua' },
+            { id: 'd5', ar: 'كَأَن لَّمْ يَسْمَعْهَا كَأَنَّ فِي أُذُنَيْهِ وَقْرًا', ans: 'fasl-ittisal' }
+        ];
+
+        let selectedItemForMobile = null;
+
+        function renderDndItems() {
+            const src = document.getElementById('dnd-source');
+            src.innerHTML = '';
+            const shuffled = [...dndData].sort(() => Math.random() - 0.5);
+            shuffled.forEach(d => {
+                src.innerHTML += `<div class="dnd-item" draggable="true" id="${d.id}" ondragstart="drag(event)" onclick="handleMobileSelect(this)">${d.ar}</div>`;
+            });
+            
+            document.querySelectorAll('.dnd-target .dnd-item').forEach(el => el.remove());
+            document.querySelectorAll('.dnd-target').forEach(el => {
+                el.style.backgroundColor = 'var(--bg-secondary)';
+                el.style.borderColor = 'var(--border-color)';
+            });
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+            if (ev.target.classList.contains('dnd-target')) {
+                ev.target.classList.add('drag-over');
+            }
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            document.querySelectorAll('.dnd-target').forEach(t => t.classList.remove('drag-over'));
+            
+            var data = ev.dataTransfer.getData("text");
+            const item = document.getElementById(data);
+            const target = ev.target.closest('.dnd-target');
+            
+            if (target && item) {
+                target.appendChild(item);
+            }
+        }
+
+        function handleMobileSelect(el) {
+            document.querySelectorAll('.dnd-item').forEach(i => i.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedItemForMobile = el;
+        }
+
+        function handleMobileDrop(target) {
+            if (selectedItemForMobile) {
+                target.appendChild(selectedItemForMobile);
+                selectedItemForMobile.classList.remove('selected');
+                selectedItemForMobile = null;
+            }
+        }
+
+        function checkDnd() {
+            let correct = 0;
+            document.querySelectorAll('.dnd-item').forEach(item => {
+                const parent = item.parentElement;
+                if (!parent.classList.contains('dnd-target')) return;
+                
+                const expected = dndData.find(d => d.id === item.id).ans;
+                if (parent.dataset.cat === expected) {
+                    item.style.backgroundColor = 'var(--primary-light)';
+                    item.style.color = 'var(--primary-color)';
+                    item.style.borderColor = 'var(--primary-color)';
+                    correct++;
+                } else {
+                    item.style.backgroundColor = '#fee2e2';
+                    item.style.color = '#991b1b';
+                    item.style.borderColor = '#ef4444';
+                }
+            });
+            
+            if (correct === dndData.length) {
+                alert('أحسنت! جميع الإجابات صحيحة.');
+            }
+        }
+
+        function resetDnd() {
+            renderDndItems();
+        }
+
+        // Run
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+</html>
